@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace HotelManagement
 {
@@ -9,28 +10,56 @@ namespace HotelManagement
             var dbContext = DatabaseConfig.GetInstance();
 
             var guestToDelete = dbContext.Guests.Find(Id);
+
+            if (guestToDelete != null)
+            {
+                dbContext.Guests.Remove(guestToDelete);
+                dbContext.SaveChanges();
+            }
         }
 
         public void Insert(Guest Data)
         {
             var dbContext = DatabaseConfig.GetInstance();
-           
+
             dbContext.Guests.Add(Data);
+            dbContext.SaveChanges();
         }
 
         public List<Guest> Read()
         {
-            throw new NotImplementedException();
+            var dbContext = DatabaseConfig.GetInstance().Guests;
+
+            List<Guest> guests = dbContext.ToList();
+
+            return guests;
         }
 
         public Guest ReadById(int Id)
         {
-            throw new NotImplementedException();
+            var dbContext = DatabaseConfig.GetInstance().Guests;
+
+            var guest = dbContext.Find(Id);
+
+            if (guest != null)
+            {
+                return guest;
+            }
+
+            return null;
         }
 
         public void Update(int Id, Guest Data)
         {
-            throw new NotImplementedException();
+            var dbContext = DatabaseConfig.GetInstance();
+
+            var guestToUpdate = dbContext.Guests.Find(Id);
+
+            if (guestToUpdate != null)
+            {
+                dbContext.Guests.Update(guestToUpdate);
+                dbContext.SaveChanges();
+            }
         }
     }
 }
