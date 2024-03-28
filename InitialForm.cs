@@ -12,7 +12,6 @@ namespace HotelManagement
         public void loginClick(object sender, EventArgs e)
         {
             var DbContext = DatabaseConfig.GetInstance();
-            //var Users = DbContext.Users.ToList();
 
             this.Hide();
             app = new MainApplication();

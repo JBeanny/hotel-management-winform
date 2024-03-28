@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
+            chargeFeeInput = new NumericUpDown();
+            addButton = new Button();
             label3 = new Label();
-            button1 = new Button();
-            numericUpDown1 = new NumericUpDown();
+            label2 = new Label();
+            label1 = new Label();
+            nameInput = new TextBox();
             listView1 = new ListView();
             name = new ColumnHeader();
             chargePrice = new ColumnHeader();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chargeFeeInput).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(numericUpDown1);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(chargeFeeInput);
+            groupBox1.Controls.Add(addButton);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(nameInput);
             groupBox1.Location = new Point(527, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(261, 142);
@@ -57,30 +57,25 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Add Room";
             // 
-            // textBox1
+            // chargeFeeInput
             // 
-            textBox1.Location = new Point(111, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(144, 23);
-            textBox1.TabIndex = 0;
+            chargeFeeInput.Location = new Point(111, 61);
+            chargeFeeInput.Name = "chargeFeeInput";
+            chargeFeeInput.Size = new Size(144, 23);
+            chargeFeeInput.TabIndex = 6;
             // 
-            // label1
+            // addButton
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(15, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Name";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(15, 65);
-            label2.Name = "label2";
-            label2.Size = new Size(64, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Charge fee";
+            addButton.BackColor = Color.White;
+            addButton.FlatAppearance.BorderColor = Color.DimGray;
+            addButton.FlatStyle = FlatStyle.Flat;
+            addButton.ForeColor = Color.Black;
+            addButton.Location = new Point(180, 113);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(75, 23);
+            addButton.TabIndex = 5;
+            addButton.Text = "Add";
+            addButton.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -93,25 +88,30 @@
             label3.TabIndex = 4;
             label3.Text = "* price per day in dollar";
             // 
-            // button1
+            // label2
             // 
-            button1.BackColor = Color.White;
-            button1.FlatAppearance.BorderColor = Color.DimGray;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(180, 113);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = false;
+            label2.AutoSize = true;
+            label2.Location = new Point(15, 65);
+            label2.Name = "label2";
+            label2.Size = new Size(64, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Charge fee";
             // 
-            // numericUpDown1
+            // label1
             // 
-            numericUpDown1.Location = new Point(111, 61);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(144, 23);
-            numericUpDown1.TabIndex = 6;
+            label1.AutoSize = true;
+            label1.Location = new Point(15, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Name";
+            // 
+            // nameInput
+            // 
+            nameInput.Location = new Point(111, 22);
+            nameInput.Name = "nameInput";
+            nameInput.Size = new Size(144, 23);
+            nameInput.TabIndex = 0;
             // 
             // listView1
             // 
@@ -143,19 +143,19 @@
             Text = "RoomForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chargeFeeInput).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox nameInput;
+        private Button addButton;
         private Label label3;
         private Label label2;
         private Label label1;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown chargeFeeInput;
         private ListView listView1;
         private ColumnHeader name;
         private ColumnHeader chargePrice;
