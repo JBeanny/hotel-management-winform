@@ -35,11 +35,14 @@
             label2 = new Label();
             label1 = new Label();
             nameInput = new TextBox();
-            listView1 = new ListView();
-            name = new ColumnHeader();
-            chargePrice = new ColumnHeader();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            dataGridView1 = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
+            charge = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chargeFeeInput).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -113,31 +116,44 @@
             nameInput.Size = new Size(144, 23);
             nameInput.TabIndex = 0;
             // 
-            // listView1
+            // sqlCommand1
             // 
-            listView1.BackColor = Color.White;
-            listView1.Columns.AddRange(new ColumnHeader[] { name, chargePrice });
-            listView1.Location = new Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(498, 426);
-            listView1.TabIndex = 2;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.List;
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.Control;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, name, charge });
+            dataGridView1.Location = new Point(12, 12);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(493, 426);
+            dataGridView1.TabIndex = 1;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
             // 
             // name
             // 
-            name.Text = "Name";
+            name.HeaderText = "Name";
+            name.Name = "name";
             // 
-            // chargePrice
+            // charge
             // 
-            chargePrice.Text = "Charge Price ($/Day)";
+            charge.HeaderText = "Charge Price ( $ / day )";
+            charge.Name = "charge";
             // 
             // RoomForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(listView1);
+            Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             MaximizeBox = false;
             MaximumSize = new Size(816, 489);
@@ -145,9 +161,11 @@
             MinimumSize = new Size(816, 489);
             Name = "RoomForm";
             Text = "RoomForm";
+            Load += InitialLoad;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chargeFeeInput).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -160,8 +178,10 @@
         private Label label2;
         private Label label1;
         private NumericUpDown chargeFeeInput;
-        private ListView listView1;
-        private ColumnHeader name;
-        private ColumnHeader chargePrice;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn charge;
     }
 }
