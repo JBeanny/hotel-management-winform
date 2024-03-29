@@ -13,8 +13,12 @@ namespace HotelManagement
     public partial class ReservationForm : Form
     {
         ReservationDetailForm reservationDetailForm = null;
-        public ReservationForm()
+        private List<Room> availableRooms = new List<Room>();
+        private Room selectedRoom = new Room();
+
+        public ReservationForm(List<Room> availableRooms)
         {
+            this.availableRooms = availableRooms;
             InitializeComponent();
         }
 
@@ -22,6 +26,23 @@ namespace HotelManagement
         {
             reservationDetailForm = new ReservationDetailForm();
             reservationDetailForm.Show();
+        }
+
+        private void InitialLoad(object sender, EventArgs e)
+        {
+            availableRooms.ForEach(room =>
+            {
+                AvailableRoomDataGridViewFormat(room);
+            });
+        }
+
+        private void AvailableRoomDataGridViewFormat(Room room)
+        {
+            DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+            row.Cells[0].Value = room.Id.ToString();
+            row.Cells[1].Value = room.Name;
+            row.Cells[2].Value = room.Charge_Fee.ToString();
+            dataGridView1.Rows.Add(row);
         }
     }
 }

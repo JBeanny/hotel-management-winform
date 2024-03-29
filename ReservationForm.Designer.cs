@@ -32,7 +32,6 @@
             dateTimePicker2 = new DateTimePicker();
             label1 = new Label();
             label2 = new Label();
-            listBox1 = new ListBox();
             groupBox1 = new GroupBox();
             label6 = new Label();
             textBox3 = new TextBox();
@@ -45,8 +44,13 @@
             textBox1 = new TextBox();
             groupBox2 = new GroupBox();
             button1 = new Button();
+            dataGridView1 = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
+            charge = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dateTimePicker1
@@ -80,15 +84,6 @@
             label2.Size = new Size(54, 15);
             label2.TabIndex = 3;
             label2.Text = "End Date";
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 74);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(511, 364);
-            listBox1.TabIndex = 4;
             // 
             // groupBox1
             // 
@@ -211,14 +206,41 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.Control;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, name, charge });
+            dataGridView1.Location = new Point(12, 73);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(509, 365);
+            dataGridView1.TabIndex = 7;
+            // 
+            // id
+            // 
+            id.HeaderText = "Room ID";
+            id.Name = "id";
+            // 
+            // name
+            // 
+            name.HeaderText = "Room Name";
+            name.Name = "name";
+            // 
+            // charge
+            // 
+            charge.HeaderText = "Charge Fee ( $ /day )";
+            charge.Name = "charge";
+            // 
             // ReservationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dataGridView1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(listBox1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dateTimePicker2);
@@ -229,9 +251,11 @@
             MinimumSize = new Size(816, 489);
             Name = "ReservationForm";
             Text = "ReservationForm";
+            Load += InitialLoad;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,7 +266,6 @@
         private DateTimePicker dateTimePicker2;
         private Label label1;
         private Label label2;
-        private ListBox listBox1;
         private GroupBox groupBox1;
         private Label label4;
         private TextBox textBox2;
@@ -255,5 +278,9 @@
         private TextBox textBox3;
         private GroupBox groupBox2;
         private Button button1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn charge;
     }
 }
