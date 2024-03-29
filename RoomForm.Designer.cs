@@ -139,6 +139,10 @@
             ClientSize = new Size(800, 450);
             Controls.Add(listView1);
             Controls.Add(groupBox1);
+            MaximizeBox = false;
+            MaximumSize = new Size(816, 489);
+            MinimizeBox = false;
+            MinimumSize = new Size(816, 489);
             Name = "RoomForm";
             Text = "RoomForm";
             groupBox1.ResumeLayout(false);

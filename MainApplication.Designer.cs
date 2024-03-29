@@ -41,6 +41,7 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -63,7 +64,7 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(reservationNumber);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(56, 157);
+            panel1.Location = new Point(56, 172);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(4);
             panel1.Size = new Size(200, 100);
@@ -97,7 +98,7 @@
             panel2.BackColor = Color.White;
             panel2.Controls.Add(availableRoomLabel);
             panel2.Controls.Add(label3);
-            panel2.Location = new Point(296, 157);
+            panel2.Location = new Point(296, 172);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(4);
             panel2.Size = new Size(200, 100);
@@ -131,7 +132,7 @@
             panel3.BackColor = Color.White;
             panel3.Controls.Add(roomLabel);
             panel3.Controls.Add(label5);
-            panel3.Location = new Point(534, 157);
+            panel3.Location = new Point(534, 172);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(4);
             panel3.Size = new Size(200, 100);
@@ -169,6 +170,7 @@
             button1.TabIndex = 4;
             button1.Text = "Reserve";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -180,6 +182,7 @@
             button2.TabIndex = 5;
             button2.Text = "Check-in/Check-out";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -193,11 +196,19 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(56, 126);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 7;
+            // 
             // MainApplication
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dateTimePicker1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -205,8 +216,13 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
+            MaximizeBox = false;
+            MaximumSize = new Size(816, 489);
+            MinimizeBox = false;
+            MinimumSize = new Size(816, 489);
             Name = "MainApplication";
             Text = "MainApplication";
+            FormClosed += MainApplication_FormClosed;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -229,5 +245,6 @@
         private Button button1;
         private Button button2;
         private Button button3;
+        private DateTimePicker dateTimePicker1;
     }
 }

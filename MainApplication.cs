@@ -13,6 +13,8 @@ namespace HotelManagement
     public partial class MainApplication : Form
     {
         private RoomForm roomForm;
+        private ReservationForm reservationForm;
+        private GuestCheckInCheckOutForm guestCheckInCheckOut;
         private IStrategy<Room> RoomStrategy = new RoomStrategy();
         private List<Room> rooms = new List<Room>();
 
@@ -28,6 +30,23 @@ namespace HotelManagement
         {
             roomForm = new RoomForm(rooms);
             roomForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            reservationForm = new ReservationForm();
+            reservationForm.Show();
+        }
+
+        private void MainApplication_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            guestCheckInCheckOut = new GuestCheckInCheckOutForm();
+            guestCheckInCheckOut.Show();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace HotelManagement
             Room newRoom = new Room(name, chargeFee);
 
             RoomStrategy.Insert(newRoom);
-            MessageBox.Show("Inserted","Room Insertion",MessageBoxButtons.OK);
+            MessageBox.Show("Inserted", "Room Insertion", MessageBoxButtons.OK);
         }
     }
 }

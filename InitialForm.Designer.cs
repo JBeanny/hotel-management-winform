@@ -53,24 +53,25 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Authentication Form";
             // 
-            // button2
+            // registerButton
             // 
             registerButton.FlatAppearance.BorderColor = Color.FromArgb(161, 161, 170);
             registerButton.FlatStyle = FlatStyle.Flat;
             registerButton.Location = new Point(259, 153);
-            registerButton.Name = "button2";
+            registerButton.Name = "registerButton";
             registerButton.Size = new Size(99, 25);
             registerButton.TabIndex = 5;
             registerButton.Text = "Register";
             registerButton.UseVisualStyleBackColor = true;
+            registerButton.Click += registerButton_Click;
             // 
-            // button1
+            // loginButton
             // 
             loginButton.BackColor = Color.Transparent;
             loginButton.FlatAppearance.BorderColor = Color.FromArgb(161, 161, 170);
             loginButton.FlatStyle = FlatStyle.Flat;
             loginButton.Location = new Point(139, 153);
-            loginButton.Name = "button1";
+            loginButton.Name = "loginButton";
             loginButton.Size = new Size(99, 25);
             loginButton.TabIndex = 4;
             loginButton.Text = "Login";
@@ -110,13 +111,13 @@
             textBox1.Size = new Size(310, 23);
             textBox1.TabIndex = 0;
             // 
-            // Form1
+            // InitialForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox1);
-            Name = "Form1";
+            Name = "InitialForm";
             Text = "Hotel Management";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
