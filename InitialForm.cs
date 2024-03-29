@@ -17,5 +17,12 @@ namespace HotelManagement
             app = new MainApplication();
             app.Show();
         }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            app = new MainApplication();
+            app.Show();
+        }
     }
 }
