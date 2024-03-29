@@ -33,10 +33,10 @@
             reservationNumber = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            label2 = new Label();
+            availableRoomLabel = new Label();
             label3 = new Label();
             panel3 = new Panel();
-            label4 = new Label();
+            roomLabel = new Label();
             label5 = new Label();
             button1 = new Button();
             button2 = new Button();
@@ -95,7 +95,7 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(label2);
+            panel2.Controls.Add(availableRoomLabel);
             panel2.Controls.Add(label3);
             panel2.Location = new Point(296, 157);
             panel2.Name = "panel2";
@@ -103,16 +103,16 @@
             panel2.Size = new Size(200, 100);
             panel2.TabIndex = 2;
             // 
-            // label2
+            // availableRoomLabel
             // 
-            label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(4, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(192, 71);
-            label2.TabIndex = 1;
-            label2.Text = "0";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            availableRoomLabel.Dock = DockStyle.Fill;
+            availableRoomLabel.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            availableRoomLabel.Location = new Point(4, 25);
+            availableRoomLabel.Name = "availableRoomLabel";
+            availableRoomLabel.Size = new Size(192, 71);
+            availableRoomLabel.TabIndex = 1;
+            availableRoomLabel.Text = "0";
+            availableRoomLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -129,7 +129,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(label4);
+            panel3.Controls.Add(roomLabel);
             panel3.Controls.Add(label5);
             panel3.Location = new Point(534, 157);
             panel3.Name = "panel3";
@@ -137,16 +137,16 @@
             panel3.Size = new Size(200, 100);
             panel3.TabIndex = 3;
             // 
-            // label4
+            // roomLabel
             // 
-            label4.Dock = DockStyle.Fill;
-            label4.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(4, 25);
-            label4.Name = "label4";
-            label4.Size = new Size(192, 71);
-            label4.TabIndex = 1;
-            label4.Text = "0";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
+            roomLabel.Dock = DockStyle.Fill;
+            roomLabel.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            roomLabel.Location = new Point(4, 25);
+            roomLabel.Name = "roomLabel";
+            roomLabel.Size = new Size(192, 71);
+            roomLabel.TabIndex = 1;
+            roomLabel.Text = "0";
+            roomLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -221,10 +221,10 @@
         private Label label1;
         private Label reservationNumber;
         private Panel panel2;
-        private Label label2;
+        private Label availableRoomLabel;
         private Label label3;
         private Panel panel3;
-        private Label label4;
+        private Label roomLabel;
         private Label label5;
         private Button button1;
         private Button button2;
