@@ -12,11 +12,11 @@ namespace HotelManagement
 {
     public partial class RoomForm : Form
     {
-        private IStrategy<Room> strategy = new RoomStrategy();
-        public RoomForm()
+        private IStrategy<Room> RoomStrategy = new RoomStrategy();
+        private List<Room> rooms = new List<Room>();
+        public RoomForm(List<Room> rooms)
         {
-            List<Room> rooms = strategy.Read();
-            MessageBox.Show(rooms.Count.ToString());
+            this.rooms = rooms;
 
             InitializeComponent();
             addButton.Click += AddRoom;
@@ -25,11 +25,11 @@ namespace HotelManagement
         private void AddRoom(object? sender, EventArgs e)
         {
             string name = nameInput.Text;
-            float chargeFee = (float) chargeFeeInput.Value;
+            float chargeFee = (float)chargeFeeInput.Value;
             Room newRoom = new Room(name, chargeFee);
 
-            strategy.Insert(newRoom);
-            MessageBox.Show("Inserted");
+            RoomStrategy.Insert(newRoom);
+            MessageBox.Show("Inserted","Room Insertion",MessageBoxButtons.OK);
         }
     }
 }
