@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelManagement
 {
@@ -29,7 +30,28 @@ namespace HotelManagement
             Room newRoom = new Room(name, chargeFee);
 
             RoomStrategy.Insert(newRoom);
-            MessageBox.Show("Inserted","Room Insertion",MessageBoxButtons.OK);
+
+            // Update list and DataGirdView
+            rooms.Add(newRoom);
+            RoomDataGridViewFormat(newRoom);
+
+            MessageBox.Show("You have successfully inserted " + name, "Room Insertion", MessageBoxButtons.OK);
+        }
+
+        private void InitialLoad(object sender, EventArgs e)
+        {
+            rooms.ForEach(room => {
+                RoomDataGridViewFormat(room);
+            });
+        }
+
+        private void RoomDataGridViewFormat(Room room)
+        {
+            DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+            row.Cells[0].Value = room.Id.ToString();
+            row.Cells[1].Value = room.Name;
+            row.Cells[2].Value = room.Charge_Fee.ToString();
+            dataGridView1.Rows.Add(row);
         }
     }
 }
