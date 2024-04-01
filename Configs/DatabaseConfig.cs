@@ -1,7 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.IO;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace HotelManagement
 {
@@ -9,7 +6,7 @@ namespace HotelManagement
     public static class DatabaseConfig
     {
         private static DatabaseContext _instance;
-        private static string _databaseConnectionString = "Data Source=localhost; Initial Catalog=HotelManagement; User Id=sa; Password=aVeryStrongPassword!@;TrustServerCertificate=True";
+        private static string _databaseConnectionString = "Data Source=localhost; Initial Catalog=HotelManagement; User Id=sa; Password=Roth123@@!;TrustServerCertificate=True";
 
         public static DatabaseContext GetInstance()
         {

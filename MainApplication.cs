@@ -17,11 +17,16 @@ namespace HotelManagement
         private GuestCheckInCheckOutForm guestCheckInCheckOut;
         private IStrategy<Room> RoomStrategy = new RoomStrategy();
         private List<Room> rooms = new List<Room>();
+        private List<Room> availableRooms = new List<Room>();
 
         public MainApplication()
         {
             InitializeComponent();
+
+            // Read rooms data from DB
             rooms = RoomStrategy.Read();
+            availableRooms = rooms;
+
             roomLabel.Text = rooms.Count.ToString();
             availableRoomLabel.Text = rooms.Count.ToString();
         }
@@ -34,7 +39,7 @@ namespace HotelManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            reservationForm = new ReservationForm();
+            reservationForm = new ReservationForm(availableRooms);
             reservationForm.Show();
         }
 
