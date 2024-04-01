@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            startDatePicker = new DateTimePicker();
+            endDatePicker = new DateTimePicker();
             label1 = new Label();
             label2 = new Label();
             groupBox1 = new GroupBox();
@@ -53,39 +53,35 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // dateTimePicker1
+            // startDatePicker
             // 
-            dateTimePicker1.Location = new Point(17, 58);
-            dateTimePicker1.Margin = new Padding(4, 5, 4, 5);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(284, 31);
-            dateTimePicker1.TabIndex = 0;
+            startDatePicker.Location = new Point(12, 35);
+            startDatePicker.Name = "startDatePicker";
+            startDatePicker.Size = new Size(200, 23);
+            startDatePicker.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // endDatePicker
             // 
-            dateTimePicker2.Location = new Point(459, 58);
-            dateTimePicker2.Margin = new Padding(4, 5, 4, 5);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(284, 31);
-            dateTimePicker2.TabIndex = 1;
+            endDatePicker.Location = new Point(321, 35);
+            endDatePicker.Name = "endDatePicker";
+            endDatePicker.Size = new Size(200, 23);
+            endDatePicker.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(17, 15);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(90, 25);
+            label1.Size = new Size(58, 15);
             label1.TabIndex = 2;
             label1.Text = "Start Date";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(459, 15);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(321, 9);
             label2.Name = "label2";
-            label2.Size = new Size(84, 25);
+            label2.Size = new Size(54, 15);
             label2.TabIndex = 3;
             label2.Text = "End Date";
             // 
@@ -100,11 +96,9 @@
             groupBox1.Controls.Add(guestPhoneInput);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(guestNameInput);
-            groupBox1.Location = new Point(773, 15);
-            groupBox1.Margin = new Padding(4, 5, 4, 5);
+            groupBox1.Location = new Point(541, 9);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 5, 4, 5);
-            groupBox1.Size = new Size(353, 305);
+            groupBox1.Size = new Size(247, 183);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Guest Form";
@@ -112,38 +106,34 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(10, 235);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(7, 141);
             label6.Name = "label6";
-            label6.Size = new Size(30, 25);
+            label6.Size = new Size(18, 15);
             label6.TabIndex = 8;
             label6.Text = "ID";
             // 
             // guestIdInput
             // 
-            guestIdInput.Location = new Point(96, 230);
-            guestIdInput.Margin = new Padding(4, 5, 4, 5);
+            guestIdInput.Location = new Point(67, 138);
             guestIdInput.Name = "guestIdInput";
-            guestIdInput.Size = new Size(245, 31);
+            guestIdInput.Size = new Size(173, 23);
             guestIdInput.TabIndex = 7;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(11, 157);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(8, 94);
             label5.Name = "label5";
-            label5.Size = new Size(39, 25);
+            label5.Size = new Size(25, 15);
             label5.TabIndex = 6;
             label5.Text = "Sex";
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(220, 177);
-            radioButton2.Margin = new Padding(4, 5, 4, 5);
+            radioButton2.Location = new Point(154, 106);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(93, 29);
+            radioButton2.Size = new Size(63, 19);
             radioButton2.TabIndex = 5;
             radioButton2.TabStop = true;
             radioButton2.Text = "Female";
@@ -152,10 +142,9 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(127, 177);
-            radioButton1.Margin = new Padding(4, 5, 4, 5);
+            radioButton1.Location = new Point(89, 106);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(75, 29);
+            radioButton1.Size = new Size(51, 19);
             radioButton1.TabIndex = 4;
             radioButton1.TabStop = true;
             radioButton1.Text = "Male";
@@ -164,47 +153,41 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(10, 107);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(7, 64);
             label4.Name = "label4";
-            label4.Size = new Size(62, 25);
+            label4.Size = new Size(41, 15);
             label4.TabIndex = 3;
             label4.Text = "Phone";
             // 
             // guestPhoneInput
             // 
-            guestPhoneInput.Location = new Point(96, 102);
-            guestPhoneInput.Margin = new Padding(4, 5, 4, 5);
+            guestPhoneInput.Location = new Point(67, 61);
             guestPhoneInput.Name = "guestPhoneInput";
-            guestPhoneInput.Size = new Size(245, 31);
+            guestPhoneInput.Size = new Size(173, 23);
             guestPhoneInput.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(11, 53);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(8, 32);
             label3.Name = "label3";
-            label3.Size = new Size(59, 25);
+            label3.Size = new Size(39, 15);
             label3.TabIndex = 1;
             label3.Text = "Name";
             // 
             // guestNameInput
             // 
-            guestNameInput.Location = new Point(97, 48);
-            guestNameInput.Margin = new Padding(4, 5, 4, 5);
+            guestNameInput.Location = new Point(68, 29);
             guestNameInput.Name = "guestNameInput";
-            guestNameInput.Size = new Size(245, 31);
+            guestNameInput.Size = new Size(173, 23);
             guestNameInput.TabIndex = 0;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(button1);
-            groupBox2.Location = new Point(773, 628);
-            groupBox2.Margin = new Padding(4, 5, 4, 5);
+            groupBox2.Location = new Point(541, 377);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(4, 5, 4, 5);
-            groupBox2.Size = new Size(353, 102);
+            groupBox2.Size = new Size(247, 61);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             groupBox2.Text = "Reserve";
@@ -215,10 +198,9 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = Color.FromArgb(245, 243, 255);
-            button1.Location = new Point(11, 32);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Location = new Point(8, 19);
             button1.Name = "button1";
-            button1.Size = new Size(331, 53);
+            button1.Size = new Size(232, 32);
             button1.TabIndex = 0;
             button1.Text = "Reserve";
             button1.UseVisualStyleBackColor = false;
@@ -230,13 +212,12 @@
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, name, charge });
-            dataGridView1.Location = new Point(17, 122);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Location = new Point(12, 73);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(727, 608);
+            dataGridView1.Size = new Size(509, 365);
             dataGridView1.TabIndex = 7;
             // 
             // id
@@ -259,21 +240,20 @@
             // 
             // ReservationForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1134, 722);
+            ClientSize = new Size(798, 443);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Margin = new Padding(4, 5, 4, 5);
+            Controls.Add(endDatePicker);
+            Controls.Add(startDatePicker);
             MaximizeBox = false;
-            MaximumSize = new Size(1156, 778);
+            MaximumSize = new Size(814, 482);
             MinimizeBox = false;
-            MinimumSize = new Size(1156, 778);
+            MinimumSize = new Size(814, 482);
             Name = "ReservationForm";
             Text = "ReservationForm";
             Load += InitialLoad;
@@ -287,8 +267,8 @@
 
         #endregion
 
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker startDatePicker;
+        private DateTimePicker endDatePicker;
         private Label label1;
         private Label label2;
         private GroupBox groupBox1;

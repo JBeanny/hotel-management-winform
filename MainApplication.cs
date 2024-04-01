@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,10 @@ namespace HotelManagement
         private ReservationForm reservationForm;
         private GuestCheckInCheckOutForm guestCheckInCheckOut;
         private IStrategy<Room> RoomStrategy = new RoomStrategy();
+        private IStrategy<Reservation> ReservationStrategy = new ReservationStrategy();
+
         private List<Room> rooms = new List<Room>();
+        private List<Reservation> reservations = new List<Reservation>();
         private List<Room> availableRooms = new List<Room>();
 
         public MainApplication()
@@ -25,10 +29,23 @@ namespace HotelManagement
 
             // Read rooms data from DB
             rooms = RoomStrategy.Read();
-            availableRooms = rooms;
+
+            // Read reservations data from DB
+            reservations = ReservationStrategy.Read();
+
+            // Get Available Rooms
+            availableRooms = filterAvailableRooms();
 
             roomLabel.Text = rooms.Count.ToString();
             availableRoomLabel.Text = rooms.Count.ToString();
+            reservationLabel.Text = reservations.Count.ToString();
+        }
+
+        private List<Room> filterAvailableRooms()
+        {
+            List<Room> availableRooms = rooms.Where(room => reservations.Any(reservation => reservation.RoomId != room.Id)).ToList();
+
+            return availableRooms;
         }
 
         private void button3_Click(object sender, EventArgs e)

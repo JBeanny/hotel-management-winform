@@ -1,8 +1,13 @@
-﻿namespace HotelManagement
+﻿using HotelManagement;
+
+namespace HotelManagement
 {
     public partial class ReservationForm : Form
     {
         ReservationDetailForm reservationDetailForm = null;
+        private IStrategy<Reservation> ReservationStrategy = new ReservationStrategy();
+        private IStrategy<Guest> GuestStrategy = new GuestStrategy();
+
         private List<Room> availableRooms = new List<Room>();
         private Room selectedRoom = new Room();
         private Guest filledGuest = new Guest();
@@ -18,12 +23,20 @@
         private void button1_Click(object sender, EventArgs e)
         {
             // handle data here with chain of responsibility design pattern
-            string name = guestNameInput.Text;
-            string contact = guestPhoneInput.Text;
-            string id = guestIdInput.Text;
-            filledGuest = new Guest(name, contact);
 
-            reservationDetailForm = new ReservationDetailForm(selectedRoom, filledGuest);
+            filledGuest = getGuestInfo();
+            DateTime startDate = startDatePicker.Value.Date;
+            DateTime endDate = endDatePicker.Value.Date;
+
+            // Insert guest
+            GuestStrategy.Insert(filledGuest);
+
+            // Generate and insert reservation
+            string reservationId = Utils.generateRandomId(5,"R");
+            Reservation newReservation = new Reservation(reservationId,selectedRoom.Id,filledGuest.Id,startDate,endDate,"0");
+            ReservationStrategy.Insert(newReservation);
+
+            reservationDetailForm = new ReservationDetailForm(selectedRoom, filledGuest,newReservation);
             reservationDetailForm.Show();
         }
 
@@ -37,6 +50,30 @@
             {
                 AvailableRoomDataGridViewFormat(room);
             });
+        }
+
+        private Guest getGuestInfo()
+        {
+            string guestName = guestNameInput.Text;
+            string guestContact = guestPhoneInput.Text;
+            string guestId = Utils.generateRandomId(5, "G");
+            string guestGender = getGenderFromRadioButton();
+            
+            return new Guest(guestId, guestName, guestContact, guestGender);
+        }
+
+        // Get value from Radio button
+        private string getGenderFromRadioButton()
+        {
+            Boolean isChecked = radioButton1.Checked;
+
+            if(isChecked)
+            {
+                return radioButton1.Text;
+            }else
+            {
+                return radioButton2.Text;
+            }
         }
 
         // handle row selection

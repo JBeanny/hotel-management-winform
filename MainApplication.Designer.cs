@@ -30,7 +30,7 @@
         {
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            reservationNumber = new Label();
+            reservationLabel = new Label();
             label1 = new Label();
             panel2 = new Panel();
             availableRoomLabel = new Label();
@@ -62,7 +62,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(reservationNumber);
+            panel1.Controls.Add(reservationLabel);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(56, 172);
             panel1.Name = "panel1";
@@ -70,16 +70,16 @@
             panel1.Size = new Size(200, 100);
             panel1.TabIndex = 1;
             // 
-            // reservationNumber
+            // reservationLabel
             // 
-            reservationNumber.Dock = DockStyle.Fill;
-            reservationNumber.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            reservationNumber.Location = new Point(4, 25);
-            reservationNumber.Name = "reservationNumber";
-            reservationNumber.Size = new Size(192, 71);
-            reservationNumber.TabIndex = 1;
-            reservationNumber.Text = "0";
-            reservationNumber.TextAlign = ContentAlignment.MiddleCenter;
+            reservationLabel.Dock = DockStyle.Fill;
+            reservationLabel.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            reservationLabel.Location = new Point(4, 25);
+            reservationLabel.Name = "reservationLabel";
+            reservationLabel.Size = new Size(192, 71);
+            reservationLabel.TabIndex = 1;
+            reservationLabel.Text = "0";
+            reservationLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -235,7 +235,7 @@
         private PictureBox pictureBox1;
         private Panel panel1;
         private Label label1;
-        private Label reservationNumber;
+        private Label reservationLabel;
         private Panel panel2;
         private Label availableRoomLabel;
         private Label label3;
