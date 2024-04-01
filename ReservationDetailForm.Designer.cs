@@ -45,7 +45,7 @@
             roomName = new Label();
             groupBox3 = new GroupBox();
             label2 = new Label();
-            reservationId = new Label();
+            reservationIdLabel = new Label();
             groupBox1 = new GroupBox();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -54,10 +54,9 @@
             // 
             // payment
             // 
-            payment.Location = new Point(277, 498);
-            payment.Margin = new Padding(4, 0, 4, 0);
+            payment.Location = new Point(194, 299);
             payment.Name = "payment";
-            payment.Size = new Size(143, 38);
+            payment.Size = new Size(100, 23);
             payment.TabIndex = 21;
             payment.Text = "0";
             payment.TextAlign = ContentAlignment.MiddleRight;
@@ -66,10 +65,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(9, 47);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(6, 28);
             label1.Name = "label1";
-            label1.Size = new Size(141, 25);
+            label1.Size = new Size(91, 15);
             label1.TabIndex = 0;
             label1.Text = "Reservation Id:";
             // 
@@ -77,19 +75,17 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(17, 505);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(12, 303);
             label7.Name = "label7";
-            label7.Size = new Size(92, 25);
+            label7.Size = new Size(59, 15);
             label7.TabIndex = 20;
             label7.Text = "Payment:";
             // 
             // guestNationalId
             // 
-            guestNationalId.Location = new Point(251, 173);
-            guestNationalId.Margin = new Padding(4, 0, 4, 0);
+            guestNationalId.Location = new Point(176, 104);
             guestNationalId.Name = "guestNationalId";
-            guestNationalId.Size = new Size(143, 38);
+            guestNationalId.Size = new Size(100, 23);
             guestNationalId.TabIndex = 15;
             guestNationalId.Text = "0";
             guestNationalId.TextAlign = ContentAlignment.MiddleRight;
@@ -104,41 +100,36 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label3);
-            groupBox2.Location = new Point(9, 88);
-            groupBox2.Margin = new Padding(4, 5, 4, 5);
+            groupBox2.Location = new Point(6, 53);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(4, 5, 4, 5);
-            groupBox2.Size = new Size(403, 223);
+            groupBox2.Size = new Size(282, 134);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             groupBox2.Text = "Guest Information";
             // 
             // guestSex
             // 
-            guestSex.Location = new Point(251, 127);
-            guestSex.Margin = new Padding(4, 0, 4, 0);
+            guestSex.Location = new Point(176, 76);
             guestSex.Name = "guestSex";
-            guestSex.Size = new Size(143, 38);
+            guestSex.Size = new Size(100, 23);
             guestSex.TabIndex = 14;
             guestSex.Text = "0";
             guestSex.TextAlign = ContentAlignment.MiddleRight;
             // 
             // guestPhone
             // 
-            guestPhone.Location = new Point(251, 78);
-            guestPhone.Margin = new Padding(4, 0, 4, 0);
+            guestPhone.Location = new Point(176, 47);
             guestPhone.Name = "guestPhone";
-            guestPhone.Size = new Size(143, 38);
+            guestPhone.Size = new Size(100, 23);
             guestPhone.TabIndex = 13;
             guestPhone.Text = "0";
             guestPhone.TextAlign = ContentAlignment.MiddleRight;
             // 
             // guestName
             // 
-            guestName.Location = new Point(251, 27);
-            guestName.Margin = new Padding(4, 0, 4, 0);
+            guestName.Location = new Point(176, 16);
             guestName.Name = "guestName";
-            guestName.Size = new Size(143, 38);
+            guestName.Size = new Size(100, 23);
             guestName.TabIndex = 12;
             guestName.Text = "0";
             guestName.TextAlign = ContentAlignment.MiddleRight;
@@ -146,69 +137,62 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(10, 180);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(7, 108);
             label6.Name = "label6";
-            label6.Size = new Size(34, 25);
+            label6.Size = new Size(21, 15);
             label6.TabIndex = 8;
             label6.Text = "ID:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(11, 133);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(8, 80);
             label5.Name = "label5";
-            label5.Size = new Size(43, 25);
+            label5.Size = new Size(28, 15);
             label5.TabIndex = 6;
             label5.Text = "Sex:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(10, 85);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(7, 51);
             label4.Name = "label4";
-            label4.Size = new Size(66, 25);
+            label4.Size = new Size(44, 15);
             label4.TabIndex = 3;
             label4.Text = "Phone:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(11, 40);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(8, 24);
             label3.Name = "label3";
-            label3.Size = new Size(63, 25);
+            label3.Size = new Size(42, 15);
             label3.TabIndex = 1;
             label3.Text = "Name:";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(11, 40);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(8, 24);
             label9.Name = "label9";
-            label9.Size = new Size(63, 25);
+            label9.Size = new Size(42, 15);
             label9.TabIndex = 1;
             label9.Text = "Name:";
             // 
             // chargeFee
             // 
-            chargeFee.Location = new Point(251, 77);
-            chargeFee.Margin = new Padding(4, 0, 4, 0);
+            chargeFee.Location = new Point(176, 46);
             chargeFee.Name = "chargeFee";
-            chargeFee.Size = new Size(143, 38);
+            chargeFee.Size = new Size(100, 23);
             chargeFee.TabIndex = 17;
             chargeFee.Text = "0";
             chargeFee.TextAlign = ContentAlignment.MiddleRight;
             // 
             // roomName
             // 
-            roomName.Location = new Point(251, 33);
-            roomName.Margin = new Padding(4, 0, 4, 0);
+            roomName.Location = new Point(176, 20);
             roomName.Name = "roomName";
-            roomName.Size = new Size(143, 38);
+            roomName.Size = new Size(100, 23);
             roomName.TabIndex = 16;
             roomName.Text = "0";
             roomName.TextAlign = ContentAlignment.MiddleRight;
@@ -219,11 +203,9 @@
             groupBox3.Controls.Add(roomName);
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(label9);
-            groupBox3.Location = new Point(9, 325);
-            groupBox3.Margin = new Padding(4, 5, 4, 5);
+            groupBox3.Location = new Point(6, 195);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(4, 5, 4, 5);
-            groupBox3.Size = new Size(403, 137);
+            groupBox3.Size = new Size(282, 82);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "Room Information";
@@ -231,54 +213,50 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 83);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(9, 50);
             label2.Name = "label2";
-            label2.Size = new Size(162, 25);
+            label2.Size = new Size(108, 15);
             label2.TabIndex = 2;
             label2.Text = "Charge fee ($/day):";
             // 
-            // reservationId
+            // reservationIdLabel
             // 
-            reservationId.Location = new Point(269, 40);
-            reservationId.Margin = new Padding(4, 0, 4, 0);
-            reservationId.Name = "reservationId";
-            reservationId.Size = new Size(143, 38);
-            reservationId.TabIndex = 11;
-            reservationId.Text = "0";
-            reservationId.TextAlign = ContentAlignment.MiddleRight;
+            reservationIdLabel.Location = new Point(188, 24);
+            reservationIdLabel.Name = "reservationIdLabel";
+            reservationIdLabel.Size = new Size(100, 23);
+            reservationIdLabel.TabIndex = 11;
+            reservationIdLabel.Text = "0";
+            reservationIdLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(reservationId);
+            groupBox1.Controls.Add(reservationIdLabel);
             groupBox1.Controls.Add(groupBox3);
             groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(17, 20);
-            groupBox1.Margin = new Padding(4, 5, 4, 5);
+            groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 5, 4, 5);
-            groupBox1.Size = new Size(420, 472);
+            groupBox1.Size = new Size(294, 283);
             groupBox1.TabIndex = 19;
             groupBox1.TabStop = false;
             groupBox1.Text = "Reservation Detail";
             // 
             // ReservationDetailForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(451, 537);
+            ClientSize = new Size(320, 332);
             Controls.Add(payment);
             Controls.Add(label7);
             Controls.Add(groupBox1);
-            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
-            MaximumSize = new Size(473, 593);
+            MaximumSize = new Size(336, 371);
             MinimizeBox = false;
-            MinimumSize = new Size(473, 593);
+            MinimumSize = new Size(336, 371);
             Name = "ReservationDetailForm";
             ShowIcon = false;
             Text = "ReservationDetailForm";
+            Load += InitialLoad;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -308,7 +286,7 @@
         private Label roomName;
         private GroupBox groupBox3;
         private Label label2;
-        private Label reservationId;
+        private Label reservationIdLabel;
         private GroupBox groupBox1;
     }
 }
