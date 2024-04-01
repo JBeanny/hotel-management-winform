@@ -11,13 +11,15 @@ namespace HotelManagement
 
         private List<RoomAvailable> availableRooms = new List<RoomAvailable>();
         private Room selectedRoom = null;
+        private List<Room> rooms = new List<Room>();
+        private List<Reservation> reservations = new List<Reservation>();
         private Guest filledGuest = new Guest();
 
-        public ReservationForm(List<RoomAvailable> availableRooms)
+        public ReservationForm(List<Room> rooms, List<Reservation> reservations)
         {
             InitializeComponent();
-
-            this.availableRooms = availableRooms;
+            this.rooms = rooms;
+            this.reservations = reservations;
             dataGridView1.SelectionChanged += handleRowSelection;
         }
 

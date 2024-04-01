@@ -123,13 +123,19 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, name, charge });
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView1.Location = new Point(12, 12);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.ShowCellToolTips = false;
             dataGridView1.Size = new Size(493, 426);
             dataGridView1.TabIndex = 1;
             // 
@@ -137,16 +143,19 @@
             // 
             id.HeaderText = "ID";
             id.Name = "id";
+            id.ReadOnly = true;
             // 
             // name
             // 
             name.HeaderText = "Name";
             name.Name = "name";
+            name.ReadOnly = true;
             // 
             // charge
             // 
             charge.HeaderText = "Charge Price ( $ / day )";
             charge.Name = "charge";
+            charge.ReadOnly = true;
             // 
             // RoomForm
             // 

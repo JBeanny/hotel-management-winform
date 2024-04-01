@@ -20,7 +20,7 @@ namespace HotelManagement.Bridge
                 return true;
             }
 
-            if (Reservation.StartDate <= dateTime && Reservation.EndDate >= dateTime && Reservation.RoomId == room.Id)
+            if (Reservation.StartDate.CompareTo(dateTime) <= 0 && Reservation.EndDate.CompareTo(dateTime) > 0)
             {
                 return false;
             }

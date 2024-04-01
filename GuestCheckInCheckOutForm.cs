@@ -15,6 +15,7 @@ namespace HotelManagement
         public GuestCheckInCheckOutForm()
         {
             InitializeComponent();
+            detailPanel.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,9 +23,18 @@ namespace HotelManagement
             if (this.status.Text == "CHECK-IN")
             {
                 this.status.Text = "CHECK-OUT";
-            } else
+            }
+            else
             {
                 this.status.Text = "CHECK-IN";
+            }
+        }
+
+        private void searchTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                MessageBox.Show(searchTextBox.Text + "-- Please implement");
             }
         }
     }

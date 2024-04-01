@@ -41,7 +41,7 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            dateTimePicker1 = new DateTimePicker();
+            selectedDatePicker = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -196,19 +196,20 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // dateTimePicker1
+            // selectedDatePicker
             // 
-            dateTimePicker1.Location = new Point(56, 126);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 7;
+            selectedDatePicker.Location = new Point(56, 126);
+            selectedDatePicker.Name = "selectedDatePicker";
+            selectedDatePicker.Size = new Size(200, 23);
+            selectedDatePicker.TabIndex = 7;
+            selectedDatePicker.ValueChanged += selectedDatePicker_ValueChanged;
             // 
             // MainApplication
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(selectedDatePicker);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -245,6 +246,6 @@
         private Button button1;
         private Button button2;
         private Button button3;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker selectedDatePicker;
     }
 }

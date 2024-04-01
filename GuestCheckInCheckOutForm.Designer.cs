@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            searchTextBox = new TextBox();
             label1 = new Label();
+            detailPanel = new Panel();
+            label11 = new Label();
+            status = new Label();
+            button1 = new Button();
             groupBox1 = new GroupBox();
             reservationId = new Label();
             groupBox3 = new GroupBox();
@@ -49,20 +53,19 @@
             label7 = new Label();
             label8 = new Label();
             payment = new Label();
-            button1 = new Button();
-            status = new Label();
-            label11 = new Label();
+            detailPanel.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // searchTextBox
             // 
-            textBox1.Location = new Point(12, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(294, 23);
-            textBox1.TabIndex = 0;
+            searchTextBox.Location = new Point(12, 27);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(294, 23);
+            searchTextBox.TabIndex = 0;
+            searchTextBox.KeyUp += searchTextBox_KeyUp;
             // 
             // label1
             // 
@@ -73,16 +76,65 @@
             label1.TabIndex = 1;
             label1.Text = "Reservation Id";
             // 
+            // detailPanel
+            // 
+            detailPanel.BackColor = Color.Transparent;
+            detailPanel.Controls.Add(label11);
+            detailPanel.Controls.Add(status);
+            detailPanel.Controls.Add(button1);
+            detailPanel.Controls.Add(groupBox1);
+            detailPanel.Controls.Add(label8);
+            detailPanel.Controls.Add(payment);
+            detailPanel.Location = new Point(12, 56);
+            detailPanel.Name = "detailPanel";
+            detailPanel.Size = new Size(294, 405);
+            detailPanel.TabIndex = 2;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = Color.FromArgb(225, 29, 72);
+            label11.Location = new Point(0, 327);
+            label11.Name = "label11";
+            label11.Size = new Size(61, 21);
+            label11.TabIndex = 33;
+            label11.Text = "Status:";
+            // 
+            // status
+            // 
+            status.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            status.ForeColor = Color.FromArgb(22, 163, 74);
+            status.Location = new Point(192, 326);
+            status.Name = "status";
+            status.Size = new Size(100, 23);
+            status.TabIndex = 32;
+            status.Text = "CHECK-IN";
+            status.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(124, 58, 237);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.FromArgb(245, 243, 255);
+            button1.Location = new Point(158, 365);
+            button1.Name = "button1";
+            button1.Size = new Size(136, 33);
+            button1.TabIndex = 31;
+            button1.Text = "Check In/Check Out";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(reservationId);
             groupBox1.Controls.Add(groupBox3);
             groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(label7);
-            groupBox1.Location = new Point(12, 70);
+            groupBox1.Location = new Point(0, 7);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(294, 283);
-            groupBox1.TabIndex = 22;
+            groupBox1.TabIndex = 28;
             groupBox1.TabStop = false;
             groupBox1.Text = "Reservation Detail";
             // 
@@ -247,76 +299,37 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(12, 361);
+            label8.Location = new Point(0, 298);
             label8.Name = "label8";
             label8.Size = new Size(59, 15);
-            label8.TabIndex = 23;
+            label8.TabIndex = 29;
             label8.Text = "Payment:";
             // 
             // payment
             // 
-            payment.Location = new Point(202, 357);
+            payment.Location = new Point(190, 294);
             payment.Name = "payment";
             payment.Size = new Size(100, 23);
-            payment.TabIndex = 24;
+            payment.TabIndex = 30;
             payment.Text = "0";
             payment.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(124, 58, 237);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.FromArgb(245, 243, 255);
-            button1.Location = new Point(170, 428);
-            button1.Name = "button1";
-            button1.Size = new Size(136, 33);
-            button1.TabIndex = 25;
-            button1.Text = "Check In/Check Out";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // status
-            // 
-            status.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            status.ForeColor = Color.FromArgb(22, 163, 74);
-            status.Location = new Point(204, 389);
-            status.Name = "status";
-            status.Size = new Size(100, 23);
-            status.TabIndex = 26;
-            status.Text = "CHECK-IN";
-            status.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.ForeColor = Color.FromArgb(225, 29, 72);
-            label11.Location = new Point(12, 390);
-            label11.Name = "label11";
-            label11.Size = new Size(61, 21);
-            label11.TabIndex = 27;
-            label11.Text = "Status:";
-            // 
-            // GuestCheckInCheckOut
+            // GuestCheckInCheckOutForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(316, 473);
-            Controls.Add(label11);
-            Controls.Add(status);
-            Controls.Add(button1);
-            Controls.Add(groupBox1);
-            Controls.Add(label8);
-            Controls.Add(payment);
+            Controls.Add(detailPanel);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(searchTextBox);
             MaximizeBox = false;
             MaximumSize = new Size(332, 512);
             MinimizeBox = false;
             MinimumSize = new Size(332, 512);
-            Name = "GuestCheckInCheckOut";
+            Name = "GuestCheckInCheckOutForm";
             Text = "GuestCheckInCheckOut";
+            detailPanel.ResumeLayout(false);
+            detailPanel.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -329,8 +342,12 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox searchTextBox;
         private Label label1;
+        private Panel detailPanel;
+        private Label label11;
+        private Label status;
+        private Button button1;
         private GroupBox groupBox1;
         private Label reservationId;
         private GroupBox groupBox3;
@@ -350,8 +367,5 @@
         private Label label7;
         private Label label8;
         private Label payment;
-        private Button button1;
-        private Label status;
-        private Label label11;
     }
 }

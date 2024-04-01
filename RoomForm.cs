@@ -40,7 +40,8 @@ namespace HotelManagement
 
         private void InitialLoad(object sender, EventArgs e)
         {
-            rooms.ForEach(room => {
+            rooms.ForEach(room =>
+            {
                 RoomDataGridViewFormat(room);
             });
         }

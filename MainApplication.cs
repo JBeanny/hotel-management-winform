@@ -49,7 +49,7 @@ namespace HotelManagement
             foreach (Room room in rooms)
             {
                 RoomAvailable roomReservation = new RoomAvailable(room, reservations.Find(x => x.RoomId == room.Id));
-                if (roomReservation.IsAvailable(new DateTime()))
+                if (roomReservation.IsAvailable(selectedDatePicker.Value.Date))
                 {
                     availableRooms.Add(roomReservation);
                 }
@@ -66,7 +66,7 @@ namespace HotelManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            reservationForm = new ReservationForm(availableRooms);
+            reservationForm = new ReservationForm(rooms, reservations);
             reservationForm.Show();
         }
 
@@ -79,6 +79,13 @@ namespace HotelManagement
         {
             guestCheckInCheckOut = new GuestCheckInCheckOutForm();
             guestCheckInCheckOut.Show();
+        }
+
+        private void selectedDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            // Get Available Rooms
+            availableRooms = filterAvailableRooms();
+            availableRoomLabel.Text = availableRooms.Count.ToString();
         }
     }
 }
