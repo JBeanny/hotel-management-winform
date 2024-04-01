@@ -6,7 +6,7 @@ namespace HotelManagement
     public static class DatabaseConfig
     {
         private static DatabaseContext _instance;
-        private static string _databaseConnectionString = "Data Source=localhost; Initial Catalog=HotelManagement; User Id=sa; Password=aVeryStrongPassword!@;TrustServerCertificate=True";
+        private static string _databaseConnectionString = "Data Source=localhost; Initial Catalog=HotelManagement; User Id=sa; Password=Hourmeng12;TrustServerCertificate=True";
 
         public static DatabaseContext GetInstance()
         {

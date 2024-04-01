@@ -1,6 +1,8 @@
-﻿namespace HotelManagement
+﻿using HotelManagement.Bridge;
+
+namespace HotelManagement
 {
-    public class Reservation
+    public class Reservation : IReservation
     {
         public string Id { get; set; }
         public int RoomId { get; set; }

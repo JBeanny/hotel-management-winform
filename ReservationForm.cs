@@ -1,4 +1,5 @@
 ﻿using HotelManagement;
+using HotelManagement.Bridge;
 
 namespace HotelManagement
 {
@@ -8,11 +9,11 @@ namespace HotelManagement
         private IStrategy<Reservation> ReservationStrategy = new ReservationStrategy();
         private IStrategy<Guest> GuestStrategy = new GuestStrategy();
 
-        private List<Room> availableRooms = new List<Room>();
-        private Room selectedRoom = new Room();
+        private List<RoomAvailable> availableRooms = new List<RoomAvailable>();
+        private Room selectedRoom = null;
         private Guest filledGuest = new Guest();
 
-        public ReservationForm(List<Room> availableRooms)
+        public ReservationForm(List<RoomAvailable> availableRooms)
         {
             InitializeComponent();
 
@@ -42,14 +43,17 @@ namespace HotelManagement
 
         private void InitialLoad(object sender, EventArgs e)
         {
-            // set selected room to be the first one
-            this.selectedRoom = availableRooms[0];
-
-            // loop through every available rooms and then put into the data grid view
-            availableRooms.ForEach(room =>
+            if(availableRooms.Count > 0)
             {
-                AvailableRoomDataGridViewFormat(room);
-            });
+                // set selected room to be the first one
+                this.selectedRoom = availableRooms[0].GetRoom();
+
+                // loop through every available rooms and then put into the data grid view
+                availableRooms.ForEach(room =>
+                {
+                    AvailableRoomDataGridViewFormat(room.GetRoom());
+                });
+            }
         }
 
         private Guest getGuestInfo()

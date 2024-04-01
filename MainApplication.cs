@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelManagement.Bridge;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace HotelManagement
 
         private List<Room> rooms = new List<Room>();
         private List<Reservation> reservations = new List<Reservation>();
-        private List<Room> availableRooms = new List<Room>();
+        private List<RoomAvailable> availableRooms = new List<RoomAvailable>();
 
         public MainApplication()
         {
@@ -37,13 +38,22 @@ namespace HotelManagement
             availableRooms = filterAvailableRooms();
 
             roomLabel.Text = rooms.Count.ToString();
-            availableRoomLabel.Text = rooms.Count.ToString();
+            availableRoomLabel.Text = availableRooms.Count.ToString();
             reservationLabel.Text = reservations.Count.ToString();
         }
 
-        private List<Room> filterAvailableRooms()
+        private List<RoomAvailable> filterAvailableRooms()
         {
-            List<Room> availableRooms = rooms.Where(room => reservations.Any(reservation => reservation.RoomId != room.Id)).ToList();
+            List<RoomAvailable> availableRooms = new List<RoomAvailable>();
+
+            foreach (Room room in rooms)
+            {
+                RoomAvailable roomReservation = new RoomAvailable(room, reservations.Find(x => x.RoomId == room.Id));
+                if (roomReservation.IsAvailable(new DateTime()))
+                {
+                    availableRooms.Add(roomReservation);
+                }
+            }
 
             return availableRooms;
         }
