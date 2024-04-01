@@ -1,5 +1,4 @@
-﻿using HotelManagement;
-using HotelManagement.Bridge;
+﻿using HotelManagement.Bridge;
 
 namespace HotelManagement
 {
@@ -20,6 +19,7 @@ namespace HotelManagement
             InitializeComponent();
             this.rooms = rooms;
             this.reservations = reservations;
+            this.availableRooms = filterAvailableRooms();
             dataGridView1.SelectionChanged += handleRowSelection;
         }
 
@@ -35,17 +35,17 @@ namespace HotelManagement
             GuestStrategy.Insert(filledGuest);
 
             // Generate and insert reservation
-            string reservationId = Utils.generateRandomId(5,"R");
-            Reservation newReservation = new Reservation(reservationId,selectedRoom.Id,filledGuest.Id,startDate,endDate,"0");
+            string reservationId = Utils.generateRandomId(5, "R");
+            Reservation newReservation = new Reservation(reservationId, selectedRoom.Id, filledGuest.Id, startDate, endDate, "0");
             ReservationStrategy.Insert(newReservation);
 
-            reservationDetailForm = new ReservationDetailForm(selectedRoom, filledGuest,newReservation);
+            reservationDetailForm = new ReservationDetailForm(selectedRoom, filledGuest, newReservation);
             reservationDetailForm.Show();
         }
 
         private void InitialLoad(object sender, EventArgs e)
         {
-            if(availableRooms.Count > 0)
+            if (availableRooms.Count > 0)
             {
                 // set selected room to be the first one
                 this.selectedRoom = availableRooms[0].GetRoom();
@@ -58,13 +58,34 @@ namespace HotelManagement
             }
         }
 
+        // Filter Available room by selected period of DateTime
+        private List<RoomAvailable> filterAvailableRooms()
+        {
+            List<RoomAvailable> availableRooms = new List<RoomAvailable>();
+
+            foreach (Room room in this.rooms)
+            {
+                RoomAvailable roomReservation = new RoomAvailable(room, reservations.Find(x => x.RoomId == room.Id));
+
+                // find available rooms between the start date and end date
+                if (roomReservation.IsAvailable(startDatePicker.Value.Date) && roomReservation.IsAvailable(endDatePicker.Value.Date))
+                {
+                    availableRooms.Add(roomReservation);
+                }
+            }
+
+            return availableRooms;
+        }
+
+
+        // Get Guest Information
         private Guest getGuestInfo()
         {
             string guestName = guestNameInput.Text;
             string guestContact = guestPhoneInput.Text;
             string guestId = Utils.generateRandomId(5, "G");
             string guestGender = getGenderFromRadioButton();
-            
+
             return new Guest(guestId, guestName, guestContact, guestGender);
         }
 
@@ -73,10 +94,11 @@ namespace HotelManagement
         {
             Boolean isChecked = radioButton1.Checked;
 
-            if(isChecked)
+            if (isChecked)
             {
                 return radioButton1.Text;
-            }else
+            }
+            else
             {
                 return radioButton2.Text;
             }
@@ -102,7 +124,7 @@ namespace HotelManagement
             }
         }
 
-
+        // Format to insert into Data Grid View
         private void AvailableRoomDataGridViewFormat(Room room)
         {
             DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();

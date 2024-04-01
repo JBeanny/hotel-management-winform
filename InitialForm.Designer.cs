@@ -33,8 +33,8 @@
             loginButton = new Button();
             label2 = new Label();
             label1 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            passwordInput = new TextBox();
+            usernameInput = new TextBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -44,8 +44,8 @@
             groupBox1.Controls.Add(loginButton);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(passwordInput);
+            groupBox1.Controls.Add(usernameInput);
             groupBox1.Location = new Point(173, 84);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(456, 199);
@@ -96,20 +96,20 @@
             label1.TabIndex = 2;
             label1.Text = "Username";
             // 
-            // textBox2
+            // passwordInput
             // 
-            textBox2.Location = new Point(122, 88);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(310, 23);
-            textBox2.TabIndex = 1;
-            textBox2.UseSystemPasswordChar = true;
+            passwordInput.Location = new Point(122, 88);
+            passwordInput.Name = "passwordInput";
+            passwordInput.Size = new Size(310, 23);
+            passwordInput.TabIndex = 1;
+            passwordInput.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // usernameInput
             // 
-            textBox1.Location = new Point(122, 40);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(310, 23);
-            textBox1.TabIndex = 0;
+            usernameInput.Location = new Point(122, 40);
+            usernameInput.Name = "usernameInput";
+            usernameInput.Size = new Size(310, 23);
+            usernameInput.TabIndex = 0;
             // 
             // InitialForm
             // 
@@ -127,8 +127,8 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox passwordInput;
+        private TextBox usernameInput;
         private Label label2;
         private Label label1;
         private Button registerButton;
