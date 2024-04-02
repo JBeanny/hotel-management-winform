@@ -36,6 +36,8 @@ namespace HotelManagement
             rooms.Add(newRoom);
             RoomDataGridViewFormat(newRoom);
 
+            MainApplication.roomEvent.Notify("build", rooms);
+
             MessageBox.Show("You have successfully inserted " + name, "Room Insertion", MessageBoxButtons.OK);
         }
 

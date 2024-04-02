@@ -1,4 +1,5 @@
 ﻿using HotelManagement.Bridge;
+using HotelManagement.Observer;
 
 namespace HotelManagement
 {
@@ -13,6 +14,9 @@ namespace HotelManagement
         private List<Room> rooms = new List<Room>();
         private List<Reservation> reservations = new List<Reservation>();
         private List<RoomAvailable> availableRooms = new List<RoomAvailable>();
+        public static ReservationSubject reservationSubject = new ReservationSubject();
+        public static RoomSubject roomEvent = new RoomSubject();
+        private DashboardObserver dashboardObserver;
 
         public MainApplication()
         {
@@ -30,6 +34,12 @@ namespace HotelManagement
             roomLabel.Text = rooms.Count.ToString();
             availableRoomLabel.Text = availableRooms.Count.ToString();
             reservationLabel.Text = reservations.Count.ToString();
+
+
+            // Observer subscribe
+            dashboardObserver = new DashboardObserver(reservationLabel, roomLabel);
+            reservationSubject.Subscribe(dashboardObserver);
+            roomEvent.Subscribe(dashboardObserver);
         }
 
         private List<RoomAvailable> filterAvailableRooms()
@@ -38,7 +48,7 @@ namespace HotelManagement
 
             foreach (Room room in rooms)
             {
-                RoomAvailable roomReservation = new RoomAvailable(room, reservations.Find(x => x.RoomId == room.Id));
+                RoomAvailable roomReservation = new RoomAvailable(room, reservations.Find(match: x => x.RoomId == room.Id));
                 if (roomReservation.IsAvailable(selectedDatePicker.Value.Date))
                 {
                     availableRooms.Add(roomReservation);

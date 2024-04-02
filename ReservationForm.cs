@@ -1,4 +1,5 @@
 ﻿using HotelManagement.Bridge;
+using HotelManagement.Observer;
 using Microsoft.IdentityModel.Tokens;
 
 namespace HotelManagement
@@ -22,6 +23,8 @@ namespace HotelManagement
             this.reservations = reservations;
             this.availableRooms = filterAvailableRooms();
             dataGridView1.SelectionChanged += handleRowSelection;
+            this.startDatePicker.Value = DateTime.Today;
+            this.endDatePicker.Value = DateTime.Today.AddDays(1);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,7 +45,8 @@ namespace HotelManagement
 
             // Add to reservation list to filter the available room
             reservations.Add(newReservation);
-            refetchAvailableRooms(sender, e);
+            //refetchAvailableRooms(sender, e);
+            MainApplication.reservationSubject.Notify("reserve", reservations);
 
             reservationDetailForm = new ReservationDetailForm(selectedRoom, filledGuest, newReservation);
             reservationDetailForm.Show();
