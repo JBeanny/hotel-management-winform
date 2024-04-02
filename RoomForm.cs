@@ -25,9 +25,10 @@ namespace HotelManagement
 
         private void AddRoom(object? sender, EventArgs e)
         {
+            string id = Utils.generateRandomId(5, "Room");
             string name = nameInput.Text;
             float chargeFee = (float)chargeFeeInput.Value;
-            Room newRoom = new Room(name, chargeFee);
+            Room newRoom = new Room(id,name, chargeFee);
 
             RoomStrategy.Insert(newRoom);
 

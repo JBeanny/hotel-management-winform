@@ -4,7 +4,7 @@
     {
         void Insert(T Data);
         List<T> Read();
-        T ReadById(int Id);
+        T ReadById(string Id);
         void Delete(int Id);
         void Update(int Id, T Data);
     }

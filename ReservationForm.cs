@@ -1,4 +1,5 @@
 ﻿using HotelManagement.Bridge;
+using Microsoft.IdentityModel.Tokens;
 
 namespace HotelManagement
 {
@@ -38,6 +39,10 @@ namespace HotelManagement
             string reservationId = Utils.generateRandomId(5, "R");
             Reservation newReservation = new Reservation(reservationId, selectedRoom.Id, filledGuest.Id, startDate, endDate, "0");
             ReservationStrategy.Insert(newReservation);
+
+            // Add to reservation list to filter the available room
+            reservations.Add(newReservation);
+            refetchAvailableRooms(sender, e);
 
             reservationDetailForm = new ReservationDetailForm(selectedRoom, filledGuest, newReservation);
             reservationDetailForm.Show();
@@ -111,9 +116,10 @@ namespace HotelManagement
 
             if (selectedRow != null && selectedRow.Cells.Count > 2)
             {
-                int roomId;
-                if (int.TryParse(selectedRow.Cells[0].Value?.ToString(), out roomId))
+                string roomId;
+                if (!selectedRow.Cells[0].Value.ToString().IsNullOrEmpty())
                 {
+                    roomId = selectedRow.Cells[0].Value.ToString();
                     string name = selectedRow.Cells[1].Value?.ToString();
                     float chargeFee;
                     if (float.TryParse(selectedRow.Cells[2].Value?.ToString(), out chargeFee))
@@ -132,6 +138,26 @@ namespace HotelManagement
             row.Cells[1].Value = room.Name;
             row.Cells[2].Value = room.Charge_Fee.ToString();
             dataGridView1.Rows.Add(row);
+        }
+
+        // handle start date value changed to fetch the available room 
+        private void startDateValueChanged(object sender, EventArgs e)
+        {
+            refetchAvailableRooms(sender, e);
+        }
+
+        // handle end date value changed to fetch the available room 
+        private void endDateValueChanged(object sender, EventArgs e)
+        {
+            refetchAvailableRooms(sender,e);
+        }
+
+        private void refetchAvailableRooms(object sender, EventArgs e)
+        {
+            availableRooms = filterAvailableRooms();
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            InitialLoad(sender, e);
         }
     }
 }

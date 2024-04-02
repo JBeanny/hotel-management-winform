@@ -8,6 +8,6 @@ namespace HotelManagement.Bridge
 {
     public interface IRoom
     {
-        public int Id { get; }
+        public string Id { get; }
     }
 }

@@ -59,6 +59,7 @@
             startDatePicker.Name = "startDatePicker";
             startDatePicker.Size = new Size(200, 23);
             startDatePicker.TabIndex = 0;
+            startDatePicker.ValueChanged += startDateValueChanged;
             // 
             // endDatePicker
             // 
@@ -66,6 +67,7 @@
             endDatePicker.Name = "endDatePicker";
             endDatePicker.Size = new Size(200, 23);
             endDatePicker.TabIndex = 1;
+            endDatePicker.ValueChanged += endDateValueChanged;
             // 
             // label1
             // 

@@ -67,7 +67,7 @@ namespace HotelManagement
 
         private void button2_Click(object sender, EventArgs e)
         {
-            guestCheckInCheckOut = new GuestCheckInCheckOutForm();
+            guestCheckInCheckOut = new GuestCheckInCheckOutForm(reservations);
             guestCheckInCheckOut.Show();
         }
 
