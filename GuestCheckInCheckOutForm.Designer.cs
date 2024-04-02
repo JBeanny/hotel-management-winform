@@ -53,6 +53,7 @@
             label7 = new Label();
             label8 = new Label();
             payment = new Label();
+            switchButton = new Button();
             detailPanel.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -63,7 +64,7 @@
             // 
             searchTextBox.Location = new Point(12, 27);
             searchTextBox.Name = "searchTextBox";
-            searchTextBox.Size = new Size(294, 23);
+            searchTextBox.Size = new Size(221, 23);
             searchTextBox.TabIndex = 0;
             searchTextBox.KeyUp += searchTextBox_KeyUp;
             // 
@@ -314,11 +315,22 @@
             payment.Text = "0";
             payment.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // switchButton
+            // 
+            switchButton.Location = new Point(239, 26);
+            switchButton.Name = "switchButton";
+            switchButton.Size = new Size(67, 24);
+            switchButton.TabIndex = 3;
+            switchButton.Text = "Switch";
+            switchButton.UseVisualStyleBackColor = true;
+            switchButton.MouseClick += switchSearchType;
+            // 
             // GuestCheckInCheckOutForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(316, 473);
+            Controls.Add(switchButton);
             Controls.Add(detailPanel);
             Controls.Add(label1);
             Controls.Add(searchTextBox);
@@ -367,5 +379,6 @@
         private Label label7;
         private Label label8;
         private Label payment;
+        private Button switchButton;
     }
 }

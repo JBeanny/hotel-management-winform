@@ -35,7 +35,7 @@ namespace HotelManagement
             return guests;
         }
 
-        public Guest ReadById(int Id)
+        public Guest ReadById(string Id)
         {
             var dbContext = DatabaseConfig.GetInstance().Guests;
 

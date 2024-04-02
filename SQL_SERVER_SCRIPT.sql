@@ -20,12 +20,11 @@ IF (NOT EXISTS
           AND TABLE_NAME = 'Rooms'
 )
    )
-    CREATE TABLE [HotelManagement].[dbo].[Rooms]
-    (
-        [id] [int] IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-        [name] [varchar](max) NOT NULL,
-        [charge_fee] [float] NOT NULL
-    )
+    CREATE TABLE [dbo].[Rooms](
+	    [id] [varchar](max) NOT NULL,
+	    [name] [varchar](max) NOT NULL,
+	    [charge_fee] [float] NOT NULL
+    ) 
 
 IF (NOT EXISTS
 (
@@ -37,7 +36,7 @@ IF (NOT EXISTS
    )
     CREATE TABLE [dbo].[Reservations](
 	    [id] [varchar](max) NOT NULL,
-	    [roomId] [int] NOT NULL,
+	    [roomId] [varchar](max) NOT NULL,
 	    [guestId] [varchar](50) NOT NULL,
 	    [startDate] [datetime] NOT NULL,
 	    [endDate] [datetime] NOT NULL,

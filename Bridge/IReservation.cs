@@ -10,6 +10,6 @@ namespace HotelManagement.Bridge
     {
         public DateTime StartDate { get; }
         public DateTime EndDate { get; }
-        public int RoomId { get; }
+        public string RoomId { get; }
     }
 }

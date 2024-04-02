@@ -4,10 +4,10 @@ namespace HotelManagement
 {
     public class Room : IRoom
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public double Charge_Fee { get; set; }
-        public Room(int id, string name, float charge_fee)
+        public Room(string id, string name, float charge_fee)
         {
             Id = id;
             Name = name;
