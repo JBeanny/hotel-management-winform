@@ -25,6 +25,11 @@ namespace HotelManagement
             authenticationHandler.SetNextHandler(authorizationHandler);
         }
 
+        public void showForm()
+        {
+            this.Show();
+        }
+
         public void loginClick(object sender, EventArgs e)
         {
             // credentials
@@ -70,6 +75,11 @@ namespace HotelManagement
             {
                 loginButton.PerformClick();
             }
+        }
+
+        private void InitialForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

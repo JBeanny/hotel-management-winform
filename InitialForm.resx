@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAA/7JJREFUeF7s/XnQXVmX1gca7Co3BhvwQGNMR9jGGIfd7bYjoG2wGdoutwmbwmBT
+        EAAACxABrSO9dQAA/7JJREFUeF7s/XnQXVmX1gca7Co3BhvwQGNMR9jGGIfd7bYjoG2wGdoutwmbwmBT
         QEFRTAWN6Y6oDvwHEe5uR7XLUN/35axMpeZZqTGVqTE1z9I7z/OoV+88z5OmzNP7t+/aV/vuu8+oK+lV
         6qyIJ6T33vOsM971rLOHtf+ZX/iFP/PzCj+n8M9kMXjCx49B7i+hwRN+7i+DwRN+7i+DwRN+7i+DwRN+
         7i+DwRN+7i+DwRN+Nn+pNnYMnvCz7dwxeMLP/WUweMLP/WUweMLP/WUweMLP/WUweMLP/WUweMLP/SW1

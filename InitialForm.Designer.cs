@@ -142,6 +142,7 @@
             MaximizeBox = false;
             Name = "InitialForm";
             Text = "Hotel Management";
+            FormClosed += InitialForm_FormClosed;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

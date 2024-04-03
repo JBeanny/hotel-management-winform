@@ -49,6 +49,7 @@
             label6 = new Label();
             label2 = new Label();
             pictureBox2 = new PictureBox();
+            logoutButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -285,12 +286,27 @@
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
             // 
+            // logoutButton
+            // 
+            logoutButton.BackColor = Color.FromArgb(239, 68, 68);
+            logoutButton.FlatAppearance.BorderSize = 0;
+            logoutButton.FlatStyle = FlatStyle.Flat;
+            logoutButton.ForeColor = Color.Transparent;
+            logoutButton.Location = new Point(644, 405);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Size = new Size(144, 33);
+            logoutButton.TabIndex = 10;
+            logoutButton.Text = "Logout";
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += handleLogout;
+            // 
             // MainApplication
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(244, 244, 245);
             ClientSize = new Size(800, 450);
+            Controls.Add(logoutButton);
             Controls.Add(label2);
             Controls.Add(label6);
             Controls.Add(panel4);
@@ -342,5 +358,6 @@
         private Label label6;
         private Label label2;
         private PictureBox pictureBox2;
+        private Button logoutButton;
     }
 }

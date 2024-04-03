@@ -6,6 +6,7 @@ namespace HotelManagement
     public partial class MainApplication : Form
     {
         private RoomForm roomForm;
+        private InitialForm initialForm = new InitialForm();
         private ReservationForm reservationForm;
         private GuestCheckInCheckOutForm guestCheckInCheckOut;
         private IStrategy<Room> RoomStrategy = new RoomStrategy();
@@ -90,6 +91,12 @@ namespace HotelManagement
             availableRooms = filterAvailableRooms();
             availableRoomLabel.Text = availableRooms.Count.ToString();
             dateReservation.Text = reservations.FindAll(x => x.StartDate <= selectedDatePicker.Value.Date && x.EndDate > selectedDatePicker.Value.Date).ToList().Count.ToString();
+        }
+
+        private void handleLogout(object sender, EventArgs e)
+        {
+            initialForm.showForm();
+            this.Hide();
         }
     }
 }
