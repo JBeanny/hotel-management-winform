@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace HotelManagement
 {
@@ -6,7 +7,7 @@ namespace HotelManagement
     public static class DatabaseConfig
     {
         private static DatabaseContext _instance;
-        private static string _databaseConnectionString = "Data Source=localhost; Initial Catalog=HotelManagement; User Id=sa; Password=aVeryStrongPassword!@;TrustServerCertificate=True";
+        private static string _databaseConnectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
 
         public static DatabaseContext GetInstance()
         {
