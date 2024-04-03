@@ -58,6 +58,8 @@ namespace HotelManagement
             {
                 // set selected room to be the first one
                 this.selectedRoom = availableRooms[0].GetRoom();
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
 
                 // loop through every available rooms and then put into the data grid view
                 availableRooms.ForEach(room =>

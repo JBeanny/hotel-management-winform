@@ -15,23 +15,36 @@ namespace HotelManagement
 
         private ISearch searchMethod;
 
+        private string reservationStatus = "0";
+
+        private string alertMessage = "You have checked in. Have a nice rest 😊";
+
         public GuestCheckInCheckOutForm(List<Reservation> reservations)
         {
             InitializeComponent();
             detailPanel.Visible = false;
             factory = new SearchFactory(reservations);
             searchMethod = factory.CreateSearch(SearchFactory.SearchType.Reservation);
+            button1.Click += button1_Click;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.status.Text == "CHECK-IN")
+            try
             {
-                this.status.Text = "CHECK-OUT";
-            }
-            else
-            {
-                this.status.Text = "CHECK-IN";
+                if(searchedReservation.CheckIn == "2")
+                {
+                    this.Close();
+                    return;
+                }
+
+                searchedReservation.CheckIn = reservationStatus;
+                ReservationStrategy.Update(searchedReservation.Id, searchedReservation);
+                this.Close();
+
+                MessageBox.Show(alertMessage,"Reservation Alert",MessageBoxButtons.OK);
+            } catch {
+                MessageBox.Show("Failed to check in", "Reservation Alert", MessageBoxButtons.OK);
             }
         }
 
@@ -42,6 +55,24 @@ namespace HotelManagement
             {
                 searchedReservation = searchMethod.Search(searchTextBox.Text);
                 getReservationInfo();
+
+                if (searchedReservation.CheckIn == "0")
+                {
+                    this.status.Text = "Not Yet";
+                    button1.Text = "Check In";
+                    reservationStatus = "1";
+                }else if(searchedReservation.CheckIn == "1")
+                {
+                    this.status.Text = "CHECK-IN";
+                    button1.Text = "Check Out";
+                    reservationStatus = "2";
+                    alertMessage = "You have checked out. Be safe and visit us next time ❤";
+                }
+                else
+                {
+                    this.status.Text = "CHECK-OUT";
+                    button1.Text = "Close";
+                }
             }
         }
 
@@ -54,6 +85,7 @@ namespace HotelManagement
             Guest guest = GuestStrategy.ReadById(searchedReservation.GuestId);
             guestName.Text = guest.Name;
             guestPhone.Text = guest.Contact;
+            guestSex.Text = guest.Gender;
             guestNationalId.Text = guest.Id;
 
             // fetch room by id

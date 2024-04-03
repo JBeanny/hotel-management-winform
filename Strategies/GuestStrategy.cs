@@ -5,7 +5,7 @@ namespace HotelManagement
 {
     public class GuestStrategy : IStrategy<Guest>
     { 
-        public void Delete(int Id)
+        public void Delete(string Id)
         {
             var dbContext = DatabaseConfig.GetInstance();
 
@@ -49,7 +49,7 @@ namespace HotelManagement
             return null;
         }
 
-        public void Update(int Id, Guest Data)
+        public void Update(string Id, Guest Data)
         {
             var dbContext = DatabaseConfig.GetInstance();
 

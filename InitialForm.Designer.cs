@@ -77,6 +77,8 @@
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginClick;
+            loginButton.KeyDown += handleEnterKeyPress;
+            loginButton.KeyUp += handleEnterKeyPress;
             // 
             // label2
             // 
@@ -103,6 +105,7 @@
             passwordInput.Size = new Size(310, 23);
             passwordInput.TabIndex = 1;
             passwordInput.UseSystemPasswordChar = true;
+            passwordInput.KeyUp += handleEnterKeyPress;
             // 
             // usernameInput
             // 
