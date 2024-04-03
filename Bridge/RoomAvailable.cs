@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace HotelManagement.Bridge
 {
-    public class RoomAvailable : RoomReservationAbstraction
+    public class RoomAvailable : RoomAvailableAbstraction
     {
         private Room room { get;  }
-        public RoomAvailable(Room room, IReservation reservation) : base(room, reservation)
+        public RoomAvailable(Room room, IReservation reservation) : base(reservation)
         {
             this.room = room;
         }
