@@ -339,7 +339,8 @@
             MinimizeBox = false;
             MinimumSize = new Size(332, 512);
             Name = "GuestCheckInCheckOutForm";
-            Text = "GuestCheckInCheckOut";
+            ShowIcon = false;
+            Text = "Guest Check In/Check Out";
             detailPanel.ResumeLayout(false);
             detailPanel.PerformLayout();
             groupBox1.ResumeLayout(false);

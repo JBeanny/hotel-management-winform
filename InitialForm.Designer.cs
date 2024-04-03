@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitialForm));
             groupBox1 = new GroupBox();
             registerButton = new Button();
             loginButton = new Button();
@@ -35,18 +36,21 @@
             label1 = new Label();
             passwordInput = new TextBox();
             usernameInput = new TextBox();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(registerButton);
             groupBox1.Controls.Add(loginButton);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(passwordInput);
             groupBox1.Controls.Add(usernameInput);
-            groupBox1.Location = new Point(173, 84);
+            groupBox1.Location = new Point(174, 167);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(456, 199);
             groupBox1.TabIndex = 0;
@@ -114,16 +118,33 @@
             usernameInput.Size = new Size(310, 23);
             usernameInput.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.ErrorImage = null;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = null;
+            pictureBox1.Location = new Point(333, 42);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(163, 119);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // InitialForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(244, 244, 245);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "InitialForm";
             Text = "Hotel Management";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -136,5 +157,6 @@
         private Label label1;
         private Button registerButton;
         private Button loginButton;
+        private PictureBox pictureBox1;
     }
 }

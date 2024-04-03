@@ -210,12 +210,17 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, name, charge });
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView1.Location = new Point(12, 73);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -227,18 +232,21 @@
             id.HeaderText = "Room ID";
             id.MinimumWidth = 8;
             id.Name = "id";
+            id.ReadOnly = true;
             // 
             // name
             // 
             name.HeaderText = "Room Name";
             name.MinimumWidth = 8;
             name.Name = "name";
+            name.ReadOnly = true;
             // 
             // charge
             // 
             charge.HeaderText = "Charge Fee ( $ /day )";
             charge.MinimumWidth = 8;
             charge.Name = "charge";
+            charge.ReadOnly = true;
             // 
             // ReservationForm
             // 
@@ -257,7 +265,8 @@
             MinimizeBox = false;
             MinimumSize = new Size(814, 482);
             Name = "ReservationForm";
-            Text = "ReservationForm";
+            ShowIcon = false;
+            Text = "Reservation Form";
             Load += InitialLoad;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

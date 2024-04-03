@@ -255,7 +255,7 @@
             MinimumSize = new Size(336, 371);
             Name = "ReservationDetailForm";
             ShowIcon = false;
-            Text = "ReservationDetailForm";
+            Text = "Reservation Detail";
             Load += InitialLoad;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();

@@ -40,9 +40,14 @@
             id = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             charge = new DataGridViewTextBoxColumn();
+            searchTextBox = new TextBox();
+            searchButton = new Button();
+            groupBox2 = new GroupBox();
+            deleteButton = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chargeFeeInput).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -130,13 +135,13 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, name, charge });
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(12, 12);
+            dataGridView1.Location = new Point(12, 41);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.ShowCellToolTips = false;
-            dataGridView1.Size = new Size(493, 426);
+            dataGridView1.Size = new Size(493, 397);
             dataGridView1.TabIndex = 1;
             // 
             // id
@@ -157,11 +162,58 @@
             charge.Name = "charge";
             charge.ReadOnly = true;
             // 
+            // searchTextBox
+            // 
+            searchTextBox.Location = new Point(12, 12);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(412, 23);
+            searchTextBox.TabIndex = 7;
+            // 
+            // searchButton
+            // 
+            searchButton.BackColor = Color.White;
+            searchButton.FlatAppearance.BorderColor = Color.DimGray;
+            searchButton.FlatStyle = FlatStyle.Flat;
+            searchButton.ForeColor = Color.Black;
+            searchButton.Location = new Point(430, 12);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(75, 23);
+            searchButton.TabIndex = 7;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = false;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(deleteButton);
+            groupBox2.Location = new Point(527, 372);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(261, 66);
+            groupBox2.TabIndex = 8;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Manage";
+            // 
+            // deleteButton
+            // 
+            deleteButton.BackColor = Color.FromArgb(239, 68, 68);
+            deleteButton.FlatAppearance.BorderSize = 0;
+            deleteButton.FlatStyle = FlatStyle.Flat;
+            deleteButton.ForeColor = Color.FromArgb(245, 243, 255);
+            deleteButton.Location = new Point(8, 22);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(247, 32);
+            deleteButton.TabIndex = 1;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += deleteButton_Click;
+            // 
             // RoomForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox2);
+            Controls.Add(searchButton);
+            Controls.Add(searchTextBox);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             MaximizeBox = false;
@@ -169,13 +221,16 @@
             MinimizeBox = false;
             MinimumSize = new Size(816, 489);
             Name = "RoomForm";
-            Text = "RoomForm";
+            ShowIcon = false;
+            Text = "Room Form";
             Load += InitialLoad;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chargeFeeInput).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -192,5 +247,9 @@
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn charge;
+        private TextBox searchTextBox;
+        private Button searchButton;
+        private GroupBox groupBox2;
+        private Button deleteButton;
     }
 }

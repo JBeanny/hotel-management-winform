@@ -34,10 +34,11 @@ namespace HotelManagement
             roomLabel.Text = rooms.Count.ToString();
             availableRoomLabel.Text = availableRooms.Count.ToString();
             reservationLabel.Text = reservations.Count.ToString();
+            dateReservation.Text = reservations.FindAll(x => x.StartDate <= selectedDatePicker.Value.Date && x.EndDate > selectedDatePicker.Value.Date).ToList().Count.ToString();
 
 
             // Observer subscribe
-            dashboardObserver = new DashboardObserver(reservationLabel, roomLabel);
+            dashboardObserver = new DashboardObserver(selectedDatePicker.Value.Date, reservationLabel, roomLabel, availableRoomLabel, dateReservation);
             reservationSubject.Subscribe(dashboardObserver);
             roomEvent.Subscribe(dashboardObserver);
         }
@@ -83,9 +84,12 @@ namespace HotelManagement
 
         private void selectedDatePicker_ValueChanged(object sender, EventArgs e)
         {
+            dashboardObserver = new DashboardObserver(selectedDatePicker.Value.Date, reservationLabel, roomLabel, availableRoomLabel, dateReservation);
+
             // Get Available Rooms
             availableRooms = filterAvailableRooms();
             availableRoomLabel.Text = availableRooms.Count.ToString();
+            dateReservation.Text = reservations.FindAll(x => x.StartDate <= selectedDatePicker.Value.Date && x.EndDate > selectedDatePicker.Value.Date).ToList().Count.ToString();
         }
     }
 }

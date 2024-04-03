@@ -45,7 +45,7 @@ namespace HotelManagement
 
             // Add to reservation list to filter the available room
             reservations.Add(newReservation);
-            //refetchAvailableRooms(sender, e);
+            refetchAvailableRooms(sender, e);
             MainApplication.reservationSubject.Notify("reserve", reservations);
 
             reservationDetailForm = new ReservationDetailForm(selectedRoom, filledGuest, newReservation);
@@ -155,7 +155,7 @@ namespace HotelManagement
         // handle end date value changed to fetch the available room 
         private void endDateValueChanged(object sender, EventArgs e)
         {
-            refetchAvailableRooms(sender,e);
+            refetchAvailableRooms(sender, e);
         }
 
         private void refetchAvailableRooms(object sender, EventArgs e)

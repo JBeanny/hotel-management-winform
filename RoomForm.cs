@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +29,7 @@ namespace HotelManagement
             string id = Utils.generateRandomId(5, "Room");
             string name = nameInput.Text;
             float chargeFee = (float)chargeFeeInput.Value;
-            Room newRoom = new Room(id,name, chargeFee);
+            Room newRoom = new Room(id, name, chargeFee);
 
             RoomStrategy.Insert(newRoom);
 
@@ -56,6 +57,23 @@ namespace HotelManagement
             row.Cells[1].Value = room.Name;
             row.Cells[2].Value = room.Charge_Fee.ToString();
             dataGridView1.Rows.Add(row);
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            var selectedRow = dataGridView1.CurrentRow;
+            if (selectedRow != null && selectedRow.Cells.Count > 2)
+            {
+                string roomId;
+                if (!selectedRow.Cells[0].Value.ToString().IsNullOrEmpty())
+                {
+                    roomId = selectedRow.Cells[0].Value.ToString();
+                    var findedRoom = rooms.Find(x => x.Id == roomId);
+                    rooms.Remove(findedRoom);
+                    dataGridView1.Rows.Remove(selectedRow);
+                    RoomStrategy.Delete(roomId);
+                }
+            }
         }
     }
 }

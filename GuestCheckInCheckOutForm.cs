@@ -32,7 +32,7 @@ namespace HotelManagement
         {
             try
             {
-                if(searchedReservation.CheckIn == "2")
+                if (searchedReservation.CheckIn == "2")
                 {
                     this.Close();
                     return;
@@ -42,8 +42,10 @@ namespace HotelManagement
                 ReservationStrategy.Update(searchedReservation.Id, searchedReservation);
                 this.Close();
 
-                MessageBox.Show(alertMessage,"Reservation Alert",MessageBoxButtons.OK);
-            } catch {
+                MessageBox.Show(alertMessage, "Reservation Alert", MessageBoxButtons.OK);
+            }
+            catch
+            {
                 MessageBox.Show("Failed to check in", "Reservation Alert", MessageBoxButtons.OK);
             }
         }
@@ -61,7 +63,8 @@ namespace HotelManagement
                     this.status.Text = "Not Yet";
                     button1.Text = "Check In";
                     reservationStatus = "1";
-                }else if(searchedReservation.CheckIn == "1")
+                }
+                else if (searchedReservation.CheckIn == "1")
                 {
                     this.status.Text = "CHECK-IN";
                     button1.Text = "Check Out";
@@ -106,11 +109,13 @@ namespace HotelManagement
         // handle switch search type
         private void switchSearchType(object sender, MouseEventArgs e)
         {
-            if(searchMethod is ReservationIdSearch) 
+            if (searchMethod is ReservationIdSearch)
             {
                 searchMethod = factory.CreateSearch(SearchFactory.SearchType.Guest);
                 label1.Text = "Guest Id";
-            }else {
+            }
+            else
+            {
                 searchMethod = factory.CreateSearch(SearchFactory.SearchType.Reservation);
                 label1.Text = "Reservation Id";
             }

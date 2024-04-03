@@ -50,7 +50,7 @@ namespace HotelManagement
 
             string encryptedPassword = Utils.hashPassword(password);
 
-            User user = new User(id,username, encryptedPassword);
+            User user = new User(id, username, encryptedPassword);
 
             UserStrategy.Insert(user);
 

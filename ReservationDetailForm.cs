@@ -9,7 +9,7 @@ namespace HotelManagement
         private Reservation reservation = new Reservation();
         private double totalPrice = 0.0;
 
-        public ReservationDetailForm(Room room, Guest guest,Reservation reservation)
+        public ReservationDetailForm(Room room, Guest guest, Reservation reservation)
         {
             InitializeComponent();
             this.room = room;
@@ -29,7 +29,7 @@ namespace HotelManagement
                 chargeFee.Text = room.Charge_Fee.ToString();
 
                 payment.Text = totalPrice.ToString();
-                
+
                 guestName.Text = guest.Name;
                 guestPhone.Text = guest.Contact;
                 guestNationalId.Text = guest.Id;
