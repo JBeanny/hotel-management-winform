@@ -59,7 +59,7 @@ namespace HotelManagement
 
             UserStrategy.Insert(user);
 
-            Boolean isAuthorized = _loginHandler.HandleRequest(username, password);
+            bool isAuthorized = new AuthorizationHandler().HandleRequest(username, password);
 
             if (isAuthorized)
             {
