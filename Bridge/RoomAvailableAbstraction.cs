@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace HotelManagement.Bridge
 {
-    public abstract class RoomReservationAbstraction
+    public abstract class RoomAvailableAbstraction
     {
-        protected IRoom Room;
         protected IReservation Reservation;
 
-        public RoomReservationAbstraction(IRoom Room, IReservation Reservation)
+        public RoomAvailableAbstraction(IReservation Reservation)
         {
-            this.Room = Room;
             this.Reservation = Reservation;
         }
 
