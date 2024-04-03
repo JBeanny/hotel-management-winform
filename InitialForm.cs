@@ -1,10 +1,14 @@
 
+using HotelManagement.Models;
+using System.Runtime.CompilerServices;
+
 namespace HotelManagement
 {
     public partial class InitialForm : Form
     {
         private MainApplication app = null;
         private ILoginHandler _loginHandler;
+        private IStrategy<User> UserStrategy = new UserStrategy();
 
         public InitialForm()
         {
@@ -23,8 +27,6 @@ namespace HotelManagement
 
         public void loginClick(object sender, EventArgs e)
         {
-            var DbContext = DatabaseConfig.GetInstance();
-
             // credentials
             string username = usernameInput.Text;
             string password = passwordInput.Text;
@@ -41,9 +43,25 @@ namespace HotelManagement
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            app = new MainApplication();
-            app.Show();
+            // credentials
+            string id = Utils.generateRandomId(5, "User");
+            string username = usernameInput.Text.ToLower();
+            string password = passwordInput.Text;
+
+            string encryptedPassword = Utils.hashPassword(password);
+
+            User user = new User(id,username, encryptedPassword);
+
+            UserStrategy.Insert(user);
+
+            Boolean isAuthorized = _loginHandler.HandleRequest(username, password);
+
+            if (isAuthorized)
+            {
+                this.Hide();
+                app = new MainApplication();
+                app.Show();
+            }
         }
 
         private void handleEnterKeyPress(object sender, KeyEventArgs e)
