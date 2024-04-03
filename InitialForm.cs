@@ -45,5 +45,13 @@ namespace HotelManagement
             app = new MainApplication();
             app.Show();
         }
+
+        private void handleEnterKeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton.PerformClick();
+            }
+        }
     }
 }
