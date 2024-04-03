@@ -1,6 +1,6 @@
 ﻿namespace HotelManagement;
 
-using Microsoft.VisualBasic.ApplicationServices;
+using HotelManagement.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class DatabaseContext : DbContext
@@ -10,4 +10,5 @@ public class DatabaseContext : DbContext
     public DbSet<Guest> Guests { get; set; }
     public DbSet<Room> Rooms { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
+    public DbSet<User> Users { get; set; }
 }

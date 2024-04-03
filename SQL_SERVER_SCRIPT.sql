@@ -58,3 +58,18 @@ IF (NOT EXISTS
 	    [contact] [varchar](50) NOT NULL,
 	    [gender] [nchar](10) NOT NULL
     )
+
+IF (NOT EXISTS
+(
+    SELECT *
+    FROM INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = 'dbo'
+          AND TABLE_NAME = 'Users'
+)
+   )
+    CREATE TABLE [dbo].[Users](
+	    [id] [varchar](max) NOT NULL,
+	    [username] [varchar](50) NOT NULL,
+	    [password] [varchar](max) NOT NULL,
+	    [createdDateTime] [datetime] NOT NULL
+    )
