@@ -1,3 +1,4 @@
+
 IF DB_ID('HotelManagement') IS NULL
 BEGIN
     CREATE DATABASE HotelManagement;
@@ -6,10 +7,10 @@ BEGIN
     BEGIN
         WAITFOR DELAY '00:00:01'; -- Wait for 1 second
         IF DB_ID('HotelManagement') IS NOT NULL
-            BREAK;
+            RETURN;
     END
-END;
-
+END
+GO
 USE HotelManagement;
 
 IF (NOT EXISTS
